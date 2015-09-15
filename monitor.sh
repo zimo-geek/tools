@@ -14,8 +14,8 @@ cd ${workdir}
 
 log()
 {
-	echo `date '+%Y-%m-%d %H:%M:%S'` $*
-	echo `date '+%Y-%m-%d %H:%M:%S'` $* >> $logfile
+    echo `date '+%Y-%m-%d %H:%M:%S'` $*
+    echo `date '+%Y-%m-%d %H:%M:%S'` $* >> $logfile
 }
 
 function monitor_slave()
