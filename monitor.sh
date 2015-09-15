@@ -32,8 +32,8 @@ EOF
 #monitor_slave ${hosts[1]} ${master}
 while true
 do
-	ps -fe|grep spark |grep -v grep
-	if [ $? -ne 0 ]
+    ps -fe|grep spark |grep -v grep
+    if [ $? -ne 0 ]
     	then
 		log 'master is stoped, restarting master'
         	#bash ${SPARK_HOME}/sbin/stop-slaves.sh
