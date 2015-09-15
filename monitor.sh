@@ -34,17 +34,17 @@ while true
 do
 	ps -fe|grep spark |grep -v grep
 	if [ $? -ne 0 ]
-    then
+    	then
 		log 'master is stoped, restarting master'
-        #bash ${SPARK_HOME}/sbin/stop-slaves.sh
+        	#bash ${SPARK_HOME}/sbin/stop-slaves.sh
 		bash ${SPARK_HOME}/sbin/start-master.sh
 		for h in ${hosts[@]}
 		do
 			log "handling ${h}"
 			monitor_slave $h ${master}
-        done
-    else
-        log "spark is running"
-    fi
+        	done
+    	else
+        	log "spark is running"
+    	fi
 	sleep 10m
 done
