@@ -1,16 +1,22 @@
-# tools
 \documentclass{article}
-\usepackage[encapsulated]{CJK} 
+\usepackage{CJKutf8} 
+
+
+\setlength{\parindent}{2em}
 \title{Line regression}
 \author{hyolin}
-\begin{CJK}{UTF8}{gbsn}
+\begin{CJK*}{UTF8}{gbsn}
+%\setlenght{\parindent}{4em}
 \begin{document}
 \maketitle
-\section{Regression}
-\paragraph
-线性回归
+%\section{回归模型}
+假设一个问题中有因变量Y及自变量$X_1,X_2,\cdots,X_p$，可以假定Y的值由两部分组成：一部分由$X_1,X_2,\cdots,X_p$所影响所致，可表示为$f(X_1,\cdots,X_p)<++>$；另一部分由其他随机因素影响所致，可视为随机误差，记为e.于是有：
 \[\displaystyle Y=f(X_1,\cdots, X_2)\]
 \[\displaystyle  E(e)=0\]
-\end{CJK}
-\end{document}
 
+假定一元线性回归模型：
+\[\displaystyle Y = b_0 + b_1 X + e\]
+
+\section{前言}
+\end{CJK*}
+\end{document}
