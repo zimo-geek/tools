@@ -17,7 +17,7 @@
 !
 ! ! Extensions
 ! !!!!No white space between extension names
-!URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: firefox
 URxvt.matcher.button: 1
 !
@@ -33,9 +33,22 @@ Colorscheme: Solarized light
 URxvt.depth:32
 !!中括号内数表示透明度
 !URxvt.background:[90]#000000
-URxvt.background:[90]#121212
-#URxvt.foreground:#ffffff
-URxvt.foreground:#ffffee
+!URxvt.background:[90]#121212
+!#URxvt.foreground:#ffffff
+!URxvt.foreground:#ffffee
+!URxvt.colorBD:Gray95
+!URxvt.colorUL:Green
+!URxvt.color1:Red2
+!URxvt.color4:RoyalBlue
+!URxvt.color5:Magenta2
+!URxvt.color8:Gray50
+!URxvt.color10:Green2
+!URxvt.color12:DodgerBlue
+!URxvt.color14:Cyan2
+!URxvt.color15:Gray95
+
+URxvt.background:[90]#000000
+URxvt.foreground:#ffffff
 URxvt.colorBD:Gray95
 URxvt.colorUL:Green
 URxvt.color1:Red2
@@ -48,14 +61,15 @@ URxvt.color14:Cyan2
 URxvt.color15:Gray95
 
 URxvt.multichar_encoding: utf-8
+!URxvt.imLocale:zh_CN.UTF-8
 
-!!URL操作
-URxvt.urlLauncher:chromium
-URxvt.matcher.button:1
-Urxvt.perl-ext-common:matcher
+!! set the artificial transparency
+!!! Rxvt.inheritPixmap:         True
+URxvt.transparency:100
+
 !!滚动条设置
-URxvt.scrollBar:True
-URxvt.scrollBar_right:True
+URxvt.scrollBar:False
+URxvt.scrollBar_right:False
 URxvt.scrollBar_floating:False
 URxvt.scrollstyle:plain
 !!滚屏设置
@@ -76,3 +90,6 @@ URxvt.font: xft:WenQuanYi Zen Hei Mono:size=12: encoding=utf-8, xft: Sans: size=
 !URxvt.boldFont: xft: Monospace: size=10: Bold,xft: WenQuanYi Bitmap Song-12: Bold
 !!URxvt.italicFont: xft: Bitstream Vera Sans Mono: italic: autohint=true
 !!URxvt.boldItalicFont: xft: Bitstream Vera Sans Mono: bold: italic: autohint=true
+
+URxvt.letterSpace: -2
+
