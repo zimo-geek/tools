@@ -18,7 +18,7 @@
 ! ! Extensions
 ! !!!!No white space between extension names
 URxvt.perl-ext-common: default,matcher
-URxvt.urlLauncher: firefox
+URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
 !
 ! ! Input Method
@@ -48,7 +48,8 @@ URxvt.depth:32
 !URxvt.color15:Gray95
 
 URxvt.background:[90]#000000
-URxvt.foreground:#ffffff
+!URxvt.foreground:#ffffff
+URxvt.foreground:#b1eeee
 URxvt.colorBD:Gray95
 URxvt.colorUL:Green
 URxvt.color1:Red2
@@ -90,6 +91,6 @@ URxvt.font: xft:WenQuanYi Zen Hei Mono:size=12: encoding=utf-8, xft: Sans: size=
 !URxvt.boldFont: xft: Monospace: size=10: Bold,xft: WenQuanYi Bitmap Song-12: Bold
 !!URxvt.italicFont: xft: Bitstream Vera Sans Mono: italic: autohint=true
 !!URxvt.boldItalicFont: xft: Bitstream Vera Sans Mono: bold: italic: autohint=true
-
+URxvt.perl-ext-common: default,tabbed
 URxvt.letterSpace: -2
 
