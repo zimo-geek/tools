@@ -86,16 +86,16 @@ URxvt.borderLess:False
 !!字体设置
 Xft.dpi:96
 !!URxvt.font: xft:WenQuanYi Micro Hei Mono:size=12
-URxvt.font: xft:WenQuanYi Zen Hei Mono:size=12: encoding=utf-8, xft: Sans: size=12: encoding=utf-8
+!URxvt.font: xft:WenQuanYi Zen Hei Mono:size=12: encoding=utf-8, xft: Sans: size=12: encoding=utf-8
 !!URxvt.font: xft: Monospace: pixelsize=14: encoding=utf-8, xft: Sans: size=12: encoding=utf-8
 !URxvt.boldFont: xft: Monospace: size=10: Bold,xft: WenQuanYi Bitmap Song-12: Bold
 !!URxvt.italicFont: xft: Bitstream Vera Sans Mono: italic: autohint=true
 !!URxvt.boldItalicFont: xft: Bitstream Vera Sans Mono: bold: italic: autohint=true
 !URxvt.font: xft:Bitstream Vera Sans Mono:size=12:atialias=true:hinting=true,xft:WenQuanYi Zen Hei Mono:size=10:encoding=utf-8
 !URxvt.boldfont: xft:Bitstream Vera Sans Mono:bold:size=12:atialias=true:hinting=true, xft:WenQuanYi Zen Hei Mono:size=10:encoding=utf-8
+URxvt.font        : xft:DejaVu Sans Mono:regular:size=12:atialias=true:hinting,xft:WenQuanYi Micro Hei Mono:regular:size=12:minspace=true
+URxvt.letterSpace: -1
 
-
-URxvt.letterSpace: -2
 
 
 
