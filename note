@@ -1,0 +1,2 @@
+1 debian testing kernel updated to 4.9 lead to 'No DHCPOFFERS Recieved'
+	touch  /etc/modprobe.d/rtl8192ce.conf && echo 'options rtl8192ce ips=0 fwlps=0' >> /etc/modprobe.d/rtl8192ce.conf
