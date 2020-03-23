@@ -9,10 +9,6 @@ set background=dark
 let g:solarized_termtrans=1
 let g:molokai_original = 1
 "colorscheme solarized
-"colorscheme desert
-""let g:solarized_termtrans=1
-""colorscheme solarized     " 设置背景主题
-"hi Normal ctermbg=NONE
 
 "set guifont=Courier_New:h10:cANSI   " 设置字体 
 "autocmd InsertLeave * se nocul  " 用浅色高亮当前行  
@@ -78,10 +74,6 @@ func SetTitle()
 		call append(line(".")+4, "\#########################################################################") 
 		call append(line(".")+5, "\#!/bin/bash") 
 		call append(line(".")+6, "") 
-    elseif &filetype == 'ruby'
-        call setline(1,"#!/usr/bin/ruby")
-        call append(line("."),"#coding=utf-8")
-		call append(line(".")+1, "") 
     elseif &filetype == 'mkd'
         call setline(1,"<head><meta charset=\"UTF-8\"></head>")
 	else 
@@ -158,12 +150,6 @@ func! CompileRunGcc()
     elseif &filetype == 'go'
 "        exec "!go build %<"
         exec "!time go run %"
-    elseif &filetype == 'mkd'
-"        exec "!touch ~/temp.html"
-"        exec "!perl ~/.vim/markdown.pl % > /tmp/temp.html<"<CR>
-"        exec "!markdown % > /tmp/temp.html<"<CR>
-"        exec "md"
-        exec "!firefox /tmp/markdown.html &"
 	endif
 endfunc
 "C,C++的调试
@@ -257,9 +243,9 @@ set smartindent
 ":inoremap { {<CR>}<ESC>O
 ":inoremap } <c-r>=ClosePair('}')<CR>
 ":inoremap [ []<ESC>i
-":inoremap ] <c-r>=ClosePair(']')<CR>
+:inoremap ] <c-r>=ClosePair(']')<CR>
 ":inoremap < <><ESC>i
-"":inoremap > <c-r>=ClosePair('>')<CR>
+":inoremap > <c-r>=ClosePair('>')<CR>
 ":inoremap " ""<ESC>i
 ":inoremap ' ''<ESC>i
 function! ClosePair(char)
@@ -287,21 +273,7 @@ let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill�
 "set autochdir 
 
 "map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> 
-map <F12> :!ctags --languages=Asm,C,C++,Python -R<CR>>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"其他东东
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"默认打开Taglist 
-let Tlist_Auto_Open=1 
-"""""""""""""""""""""""""""""" 
-" Tag list (ctags) 
-"""""""""""""""""""""""""""""""" 
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' 
-let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
-let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
-let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
+"map <F12> :!ctags --languages=Asm,C,C++,Python -R<CR>>
 
 set iskeyword+=.
 set fileencodings=utf-8
@@ -313,6 +285,17 @@ let &termencoding=&encoding
 
 
 map <C-Space> <C-x><C-o>
+
+" vimtex
+let g:tex_flavor='latex'
+"let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 
 "for ack 
@@ -385,6 +368,19 @@ let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_enter = 0
 " let g:airline#extensions#ale#enabled = 1
+let g:ale_linters = {
+        \   'python': ['flake8', 'pylint'],
+        \   'c': ['clang', 'gcc'], 
+        \   'cpp': ['clang', 'g++'],
+        \   'rust': ['rls','cargo','rustc'],
+        \}
+j
+let g:ale_fixers = {
+        \   'python': ['autopep8', 'yapf'],
+        \   'rust': ['rustfmt'],
+        \}
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_enter = 1
 
 let g:ale_c_gcc_options = '-Wall -O2 -std=c11'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++17'
@@ -416,53 +412,35 @@ let g:ycm_filetype_whitelist = {
 			\ "c":1,
 			\ "cpp":1,
 			\ "objc":1,
-			\ "objcpp":1,
 			\ "python":1,
-			\ "java":1,
-			\ "javascript":1,
-			\ "coffee":1,
 			\ "vim":1,
 			\ "go":1,
 			\ "cs":1,
 			\ "lua":1,
 			\ "perl":1,
 			\ "perl6":1,
-			\ "php":1,
-			\ "ruby":1,
 			\ "rust":1,
 			\ "erlang":1,
 			\ "asm":1,
 			\ "nasm":1,
 			\ "masm":1,
-			\ "tasm":1,
 			\ "asm68k":1,
 			\ "asmh8300":1,
 			\ "asciidoc":1,
 			\ "basic":1,
-			\ "vb":1,
 			\ "make":1,
 			\ "cmake":1,
-			\ "html":1,
-			\ "css":1,
-			\ "less":1,
 			\ "json":1,
 			\ "cson":1,
-			\ "typedscript":1,
 			\ "haskell":1,
-			\ "lhaskell":1,
 			\ "lisp":1,
 			\ "scheme":1,
-			\ "sdl":1,
 			\ "sh":1,
 			\ "zsh":1,
 			\ "bash":1,
 			\ "man":1,
 			\ "markdown":1,
-			\ "matlab":1,
-			\ "maxima":1,
-			\ "dosini":1,
 			\ "conf":1,
 			\ "config":1,
-			\ "zimbu":1,
 			\ "ps1":1,
 			\ }
