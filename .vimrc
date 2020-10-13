@@ -6,8 +6,10 @@ syntax on "语法高亮
 "set t_co=256
 "let g:solarized_use16 = 1
 set background=dark
-let g:solarized_termtrans=1
-let g:molokai_original = 1
+" let g:solarized_termtrans=1
+" let g:molokai_original = 1
+" colorscheme solarized8_flat
+colorscheme solarized8
 "colorscheme solarized
 
 "set guifont=Courier_New:h10:cANSI   " 设置字体 
@@ -105,18 +107,18 @@ autocmd BufNewFile * normal G
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "键盘命令
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:nmap <silent> <F9> <ESC>:Tlist<RETURN>
-map! <C-Z> <Esc>zzi
-map! <C-O> <C-Y>,
-map <C-A> ggVG$"+y
-map <F12> gg=G
-imap <C-k> <C-y>,
+" :nmap <silent> <F9> <ESC>:Tlist<RETURN>
+" map! <C-Z> <Esc>zzi
+" map! <C-O> <C-Y>,
+" map <C-A> ggVG$"+y
+" map <F12> gg=G
+" imap <C-k> <C-y>,
 " 选中状态下 Ctrl+c 复制
-"map <C-v> "*pa
-imap <C-v> <Esc>"*pa
-imap <C-a> <Esc>^
-imap <C-e> <Esc>$
-vmap <C-c> "+y
+" map <C-v> "*pa
+" imap <C-v> <Esc>"*pa
+" imap <C-a> <Esc>^
+" imap <C-e> <Esc>$
+" vmap <C-c> "+y
 set mouse=v
 "set clipboard=unnamed
 "去空行  
@@ -129,36 +131,36 @@ map <F3> :tabnew .<CR>
 map <C-F3> \be  
 :autocmd BufRead,BufNewFile *.dot map <F5> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
 "C，C++ 按F5编译运行
-map <F5> :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c'
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-	elseif &filetype == 'cpp'
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-	elseif &filetype == 'java' 
-		exec "!javac %" 
-		exec "!time java %<"
-	elseif &filetype == 'sh'
-		:!time bash %
-	elseif &filetype == 'python'
-		exec "!time python2.7 %"
-    elseif &filetype == 'html'
-        exec "!firefox % &"
-    elseif &filetype == 'go'
-"        exec "!go build %<"
-        exec "!time go run %"
-	endif
-endfunc
-"C,C++的调试
-map <F8> :call Rungdb()<CR>
-func! Rungdb()
-	exec "w"
-	exec "!g++ % -g -o %<"
-	exec "!gdb ./%<"
-endfunc
+" map <F5> :call CompileRunGcc()<CR>
+" func! CompileRunGcc()
+" 	exec "w"
+" 	if &filetype == 'c'
+" 		exec "!g++ % -o %<"
+" 		exec "!time ./%<"
+" 	elseif &filetype == 'cpp'
+" 		exec "!g++ % -o %<"
+" 		exec "!time ./%<"
+" 	elseif &filetype == 'java' 
+" 		exec "!javac %" 
+" 		exec "!time java %<"
+" 	elseif &filetype == 'sh'
+" 		:!time bash %
+" 	elseif &filetype == 'python'
+" 		exec "!time python2.7 %"
+"     elseif &filetype == 'html'
+"         exec "!firefox % &"
+"     elseif &filetype == 'go'
+" "        exec "!go build %<"
+"         exec "!time go run %"
+" 	endif
+" endfunc
+" "C,C++的调试
+" map <F8> :call Rungdb()<CR>
+" func! Rungdb()
+" 	exec "w"
+" 	exec "!g++ % -g -o %<"
+" 	exec "!gdb ./%<"
+" endfunc
 
 
 "omniCppComplete
@@ -191,16 +193,14 @@ set autowrite
 set ruler                   " 打开状态栏标尺
 set cursorline              " 突出显示当前行
 set magic                   " 设置魔术
-set guioptions-=T           " 隐藏工具栏
-set guioptions-=m           " 隐藏菜单栏
 
 set foldenable      " 允许折叠  
 set foldcolumn=0
-""set foldmethod=indent 
-""set foldlevel=3 
+set foldmethod=indent 
+set foldlevel=3 
 set foldlevelstart=99
 
-""set foldmethod=manual   " 手动折叠  
+set foldmethod=manual   " 手动折叠  
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
 " 去掉输入错误的提示声音
@@ -238,16 +238,16 @@ set scrolloff=3
 set smartindent
 
 "自动补全
-":inoremap ( ()<ESC>i
-":inoremap ) <c-r>=ClosePair(')')<CR>
-":inoremap { {<CR>}<ESC>O
-":inoremap } <c-r>=ClosePair('}')<CR>
-":inoremap [ []<ESC>i
+:inoremap ( ()<ESC>i
+:inoremap ) <c-r>=ClosePair(')')<CR>
+" :inoremap { {<CR>}<ESC>O
+" :inoremap } <c-r>=ClosePair('}')<CR>
+:inoremap [ []<ESC>i
 :inoremap ] <c-r>=ClosePair(']')<CR>
-":inoremap < <><ESC>i
-":inoremap > <c-r>=ClosePair('>')<CR>
-":inoremap " ""<ESC>i
-":inoremap ' ''<ESC>i
+:inoremap < <><ESC>i
+:inoremap > <c-r>=ClosePair('>')<CR>
+:inoremap " ""<ESC>i
+:inoremap ' ''<ESC>i
 function! ClosePair(char)
 	if getline('.')[col('.') - 1] == a:char
 		return "\<Right>"
@@ -261,17 +261,6 @@ filetype plugin indent on
 "打开文件类型检测, 加了这句才可以用智能补全
 set completeopt=longest,menu
 
-let Tlist_Sort_Type = "name"    " 按照名称排序  
-let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
-let Tlist_Compart_Format = 1    " 压缩方式  
-let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
-""let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
-""let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
-"let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
-"设置tags  
-"set tags=tags  
-"set autochdir 
-
 "map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> 
 "map <F12> :!ctags --languages=Asm,C,C++,Python -R<CR>>
 
@@ -284,7 +273,7 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 let &termencoding=&encoding
 
 
-map <C-Space> <C-x><C-o>
+" map <C-Space> <C-x><C-o>
 
 " vimtex
 let g:tex_flavor='latex'
@@ -304,6 +293,9 @@ let g:ackhighlight = 1
 map <Leader>c :Ack!<Space>
 
 
+" let $GTAGSLABEL = 'native-pygments'
+" let $GTAGSCONF = '$HOME/.globalrc'
+" 
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
@@ -330,6 +322,8 @@ endif
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--python-kinds=+xmcfiIvzl']
+
 
 " 如果使用 universal ctags 需要增加下面一行，老的 Exuberant-ctags 不能加下一行
 let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
@@ -341,24 +335,45 @@ let g:gutentags_auto_add_gtags_cscope = 0
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
-
+ 
+" YCM config
 let g:ycm_add_preview_to_completeopt = 1
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 let g:ycm_show_diagnostics_ui = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_server_log_level = 'info'
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
+let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_key_invoke_completion = '<c-z>'
+let g:ycm_use_ultisnips_completer = 1
 let g:ycm_confirm_extra_conf = 0
-set completeopt=menu,menuone
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>gi :YcmCompleter GoToImplementation<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <F4> :YcmDiags<CR>
+let g:ycm_python_interpreter_path = '/home/hyolin/ENV/bin/python'
+let g:ycm_python_sys_path = ["/home/hyolin/ENV/lib/python3.7/site-packages"]
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+" "set completeopt=menu,menuone
+set completeopt=longest,menu
 
-noremap <c-z> <NOP>
-
+" noremap <c-z> <NOP>
+" 
 let g:ycm_semantic_triggers =  {
-			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-			\ 'cs,lua,javascript': ['re!\w{2}'],
-			\ }
+   		\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+   		\ 'cs,lua,javascript': ['re!\w{2}'],
+   		\ }
 
+" ale config
 let g:ale_linters_explicit = 1
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
@@ -366,12 +381,12 @@ let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 " let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = {
         \   'python': ['flake8', 'pylint'],
-        \   'c': ['clang', 'gcc'], 
-        \   'cpp': ['clang', 'g++'],
+        \   'c': ['clangd-9', 'clang', 'gcc'], 
+        \   'cpp': ['clangd-9', 'clang++', 'g++'],
         \   'rust': ['rls','cargo','rustc'],
         \}
 j
@@ -379,31 +394,25 @@ let g:ale_fixers = {
         \   'python': ['autopep8', 'yapf'],
         \   'rust': ['rustfmt'],
         \}
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_enter = 1
+" let g:ale_fix_on_save = 1
+" let g:ale_lint_on_enter = 1
 
 let g:ale_c_gcc_options = '-Wall -O2 -std=c11'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++17'
 let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
+" let g:ale_sign_error = "⚡"
+" let g:ale_sign_warning = '⚠'
 
 
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_diagnosticsEnable = 0
-let g:LanguageClient_settingsPath = expand('~/.vim/languageclient.json')
-let g:LanguageClient_selectionUI = 'quickfix'
-let g:LanguageClient_diagnosticsList = v:null
-let g:LanguageClient_hoverPreview = 'Never'
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/home/hyolin/ENV/bin/pyls'],
-    \ }
-let g:LanguageClient_serverCommands.c = ['ccls']
-let g:LanguageClient_serverCommands.cpp = ['ccls']
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚡'
+let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-noremap <leader>rd :call LanguageClient#textDocument_definition()<cr>
-noremap <leader>rr :call LanguageClient#textDocument_references()<cr>
-noremap <leader>rv :call LanguageClient#textDocument_hover()<cr>
+
 
 "----------------------------------------------------------------------
 " Ycm White List
