@@ -5,11 +5,21 @@
 #
 # Executed by startx (run your window manager from here)
 #
+#!/bin/sh
 
-export XMODIFIERS="@im=fcitx"
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-fcitx &
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+#
+
+export XIM=fcitx5
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XIM_PROGRAM=fcitx5
+export XMODIFIERS="@im=fcitx5"
+export SDL_IM_MODULE=fcitx5
+fcitx5 &
 
 erresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -27,3 +37,4 @@ case "$1" in
     wmii) exec wmii ;;
     *) exec  /usr/bin/awesome ;;
 esac
+
