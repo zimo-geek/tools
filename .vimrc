@@ -4,7 +4,7 @@ syntax enable
 syntax on "语法高亮
 
 "set t_co=256
-"let g:solarized_use16 = 1
+#let g:solarized_use16 = 1
 set background=dark
 " let g:solarized_termtrans=1
 " let g:molokai_original = 1
